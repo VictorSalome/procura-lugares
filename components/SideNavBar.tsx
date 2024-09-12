@@ -16,6 +16,7 @@ export const SideNavBar = () => {
         }
     ]
 
+
     return (
         <div className="p-2 items-center flex flex-col w-[80px] space-y-4  shadow-md shadow-cyan-400 
         h-screen sticky top-0 bg- bg-white z-20" >
