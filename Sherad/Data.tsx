@@ -15,7 +15,7 @@ export const CategoryListDate = [
         name: "Restaurants",
         value: "restaurants",
         icon: "/food.png",
-    }
+    },
 
 
 ]
