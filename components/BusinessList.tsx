@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6"
+import { BussinesItem } from "./BussinesItem"
 
 
 export const BusinessList = () => {
@@ -25,6 +26,9 @@ export const BusinessList = () => {
                 </span>
 
             </h2>
+            <div>
+                <BussinesItem />
+            </div>
 
 
         </div>
