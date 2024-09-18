@@ -1,9 +1,28 @@
+"use client"
 import { BusinessList } from "@/components/BusinessList";
 import { CategoryList } from "@/components/CategoryList";
 import { SearchBar } from "@/components/SearchBar";
 import { SideNavBar } from "@/components/SideNavBar";
+import GlobalApi from "@/services/GlobalApi";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [bussinesList, SetBussinesList] = useState([])
+
+
+  useEffect(() => {
+    getNearByPlace()
+
+  }, [])
+
+  const getNearByPlace = () => {
+    GlobalApi.getNearByPlace("gas_station", "35.5827712", "-80.8484864")
+      .then(resp => {
+        // console.log(resp.data.results)
+        SetBussinesList(resp.data.results)
+      })
+  }
+
   return (
     <div className="flex">
       <SideNavBar />
@@ -14,7 +33,8 @@ export default function Home() {
 
           <SearchBar />
           <CategoryList />
-          <BusinessList />
+          <BusinessList bussinesListData={bussinesList} />
+
 
         </div>
 

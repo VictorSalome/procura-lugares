@@ -3,11 +3,19 @@
 import { useState } from "react"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6"
 import { BussinesItem } from "./BussinesItem"
+import { IDataMaps } from "./interfaces"
+
+export interface BusinessListProps {
+    bussinesListData: IDataMaps[];
+}
 
 
-export const BusinessList = () => {
+export const BusinessList = ({ bussinesListData }: BusinessListProps) => {
+    console.log('bussinesListData', bussinesListData)
 
     const [count, setCount] = useState(0)
+
+
 
 
 
@@ -27,7 +35,14 @@ export const BusinessList = () => {
 
             </h2>
             <div>
-                <BussinesItem />
+                {
+                    bussinesListData.map((business) => (
+                        <div key={business.name}>
+                            <BussinesItem business={business} />
+                        </div>
+                    ))
+                }
+
             </div>
 
 
